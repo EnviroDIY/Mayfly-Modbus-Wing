@@ -1,9 +1,10 @@
 # KNH002 Hardware RS-485 Hardware for Envirodiy Mayfly
 
 This Mayfly wingboard interface supports   
-- RS485 on up to three physical connectors, all clearly labeled with G V B A   
+- One RS485 interface on three physical connectors for wiring, all clearly labeled with G V B A   
+- One SDI-12 interface on one phsucal connector for wiring, clearly labeled with V G D  
 - improved brightness - a dual line status LED Red/Green a) Red flashes for transmit to RS485 instrument, B) Green flashes from RS485 instrumnent (response)  
-- improved power supply to a min 1.9W continuous, voltage dependent on booster. The boost circuit may be able to supply larger surge currents as it's supply climbs/boosts as the LiIon bat is low impedance. These could be as high as 0.7A continuous at lower voltages, valuable for starting up instruments on turnon.
+- improved power supply to a minimium 1.9W continuous, voltage dependent on booster. The boost circuit may be able to supply larger surge currents as it's supply climbs/boosts as the LiIon bat is low impedance. These could be as high as 0.7A continuous at lower voltages, valuable for starting up instruments on turnon.
 - new feature - Powering routing that allows connection directly to the LiIon battery, for more efficent generation and power resilency.  
    For the power output "12V" current supply, the current supplied can be 155mA to 250mA surge (1.9W continuous/3Wsurge) depending on boost hybrid.  
    Low ESR capacitor close to the booster supply input pins to avoid power surge propagation
@@ -43,18 +44,19 @@ https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-
 - On building a board, it can be built with power coming from the 5Vsw, by adding R1=0 and not stuffing U3,J8 J9 (and of course U5 or R5)    
 - Battery coloumb "Fuel Gauge" monitor - STC3100. This supplies acurrate Liion Battery voltage, coloumb in mAh with a typical 0.2mAh resolution, 8-byte unique ID, 32Ram bytes backed up by LiIon battery. There is a device driver https://github.com/neilh10/STC3100arduino and a ModularSensors "Sensors" is in development.
  
+
+# History   
+https://github.com/neilh10/SensorModbusMaster/issues/1    
+
  # KNH002 Circuit Discription  rev7 additions rev6
 For rev 7 1) adds the SDI-12 circuit accessible through 3wire interface 2) changes the STC3100 to be a TSSOP8 device that can be hand soldered and can be purchased
 This lengthens the board to 2.1" from rev 6 length of 1.7".
 SDI-12 Host is challenging to test with a number of different devices. A seperate device test is needed to verify interoperability.    
 
-
-# History   
-https://github.com/neilh10/SensorModbusMaster/issues/1    
-
-2021-Mar-10 Circuit diagram for KNH002revision6    
+2021-Mar-10 KNH002rev6 update from Rev4 (Revision 5 had one device different and never tested)     
    The 12V fuse is 155mA hold, 330mA Trip changed from previous 180mA. A line short causes the heating in the electronic fuse, which causes it to go to high resistance, limiting the current flow.       
-   The LED resistor for the Green is set to 60ohms make the emitted mcd similar to the Red Led which is 120ohms. For succesful sensor poll, a user should see the Red/Green flashes, For unsucesfull polling with no response will see a Red Flash.  A technical detail, the PCB footprint Rev6 is correct, on the Rev4 it had an error, swapping the colours.
+   The LED resistor for the Green is set to 60ohms make the emitted mcd similar to the Red Led which is 120ohms. For succesful sensor poll, a user should see the Red/Green flashes, For unsucesfull polling with no response will see a Red Flash.  
+   A technical detail, the PCB footprint Rev6 is correct, on the Rev4 it had an error, swapping the colours.
    The connector labeled "May" is physically closest to the Mayfly bat Jp1 and polarised to be the same as Mayfly JP1. Rev4 had it the other way around.      
    The battery monitoring IC STC3100  monitors the LiIon battery Voltage, Current and power used mAhr/coloumbs. This was introduced in Rev5, Rev4 had a different IC that became unavailable.     
    Rev6 PCB https://oshpark.com/shared_projects/tlFl6OPg    
