@@ -1,4 +1,4 @@
-# KNH002 Hardware RS-485 Hardware for Envirodiy Mayfly
+# Mayfly Modbus wingboard
 
 This Mayfly wingboard interface supports   
 - One RS485 interface on three physical connectors for wiring, all clearly labeled with G V B A   
