@@ -47,6 +47,7 @@ https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-
 
 # History   
 https://github.com/neilh10/SensorModbusMaster/issues/1    
+https://github.com/EnviroDIY/SensorModbusMaster/issues/14 
 
  # KNH002 Circuit Discription  rev7 additions rev6
 For rev 7 1) adds the SDI-12 circuit accessible through 3wire interface 2) changes the STC3100 to be a TSSOP8 device that can be hand soldered and can be purchased
