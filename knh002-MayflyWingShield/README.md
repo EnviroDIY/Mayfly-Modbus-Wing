@@ -29,20 +29,20 @@ https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-
 - Typically the 4 physical connections are decided by the end-user, and soldered onto the board. The silk screen has clearly printed both side for three RS485 connectors G V B A  and one SDI-12 V G D. 
   Where G=Gnd  V=Voltage and then RS485 designators A and B and SDI-12 D     
 - Typically the boost hybrid is decided by the end user. BOM has 12V option.   
-- U1/ MAX22025 is the RS485 physical interface, and manages the RS486 half-duplex state machine.   
+- U1/ MAX22025 is the RS485 physical interface, and manages the RS485 half-duplex state machine.   
 - R2/R3 649ohms are the pull-up down resistors for a long twisted pair transmission line. The value 649ohms was selected based on a remote 120Ohm and local 120ohm terminations. Its optomized for a single instrument termination over a long line, but typically will work with a number instruments terminating locally. Its up to the user to figure out if a complex set of instruments and wire lengths works for them, or do RS485 line calculations for what value of resistors they need.     
-- The Max22025 Rxb (Rx buffered) interfaces to the Mafyly via the Ioff Safe SN74LVC234. These allow the MAX22025/SN74LVC234 to be turned off, and not take current from the Mayfl.   
+- The Max22025 Rxb (Rx buffered) interfaces to the Mafyly via the Ioff Safe SN74LVC234. These allow the MAX22025/SN74LVC234 to be turned off, and not take current from the Mayfly.   
 - The Green LED is attached to the Rxb driven by the Max22025 output. When an instrument responds to a poll request, the green LED turns ON when signal is low and powered. Statastically its likely there will be some low portions in the received signal. The green is high intensity to be visible.
 - The SN74LVC234 Txb Tx(buffered) drives the RED LED, turning ON when LOW, and board powered. This reflects attempts to poll a target instrumnet. ModularSensors code attempts multiple (3) times to contact an instrument. For the sensor set to read/average 3 times, then for a disconnected instrument there will be3 sets of fast red flashes. 
-- SDI-12 is driven from D7, and has surge circuitry (FUT cct description to be supplied but it is very simple).
+- SDI-12 is driven from D7, and has surge circuitry (FUTURE: cct description to be supplied but it is very simple).
 - Typically the power will be supplied by a battery attached to the J8 labelled "Bat", and a jumper wire will supply power from J9 labelled "May" . On the underside of the board these are clearly labeled "Mayfly" and "Battery" with the + connection identified.   
 - Typically the power will be boosted by U2, and C1 is designed to be able to supply fast switching currents on U2. For detailed analysis refer to the capacitor specification and how switching circuits work.    
-- The power is switched via U3 SIP32431 Load Switch or similar. This turns ON when 3Vsw is activated by the Mayfly software.  The load switch can support continuous 1.4A. If there is a short circuit in the power loop (before the fuse or if the fuse is bypassed), this devices will emit smoke and become non-operational.   
+- The power is switched via U3 Load Switch. A SIP32431 or MIC94072YC6 or similar part. This turns ON when 3Vsw is activated by the Mayfly software.  The load switch can support continuous 1.4A. If there is a short circuit in the power loop (before the fuse or if the fuse is bypassed), this devices will emit smoke and become non-operational.   
 - The output of U2 has an electronic fuse R8 155mA, protecting from a short on the output "12V".    
 -  Fuses are rated at minimium holding current, and guarenteed trip at 350mA. If output wire is short circuit it will protect battery/processor reliability.  
       (The old RS485 hybrid wingboard used the builtin Mayfly regulator that would limit current flows at 3.3V to 0.5A, also limiting power availability to max 1.65W)   
 - On building a board, it can be built with power coming from the 5Vsw, by adding R1=0 and not stuffing U3,J8 J9 (and of course U5 or R5)    
-- Battery coloumb "Fuel Gauge" monitor - STC3100. This supplies acurrate Liion Battery voltage, coloumb in mAh with a typical 0.2mAh resolution, 8-byte unique ID, 32Ram bytes backed up by LiIon battery. There is a device driver https://github.com/neilh10/STC3100arduino and a ModularSensors "Sensors" is in development.
+- Battery coloumb "Fuel Gauge" monitor - STC3100. This supplies acurrate Liion Battery voltage, coloumb in mAh with a typical 0.2mAh resolution, 8-byte unique ID, 32Ram bytes backed up by LiIon battery. There is a device driver https://github.com/neilh10/STC3100arduino and a ModularSensors "STSTC3100_Sensor".
  
 
 # History   
@@ -50,7 +50,7 @@ https://github.com/neilh10/SensorModbusMaster/issues/1
 https://github.com/EnviroDIY/SensorModbusMaster/issues/14 
 
  # KNH002 Circuit Discription  rev7 additions rev6
-For rev 7 1) adds the SDI-12 circuit accessible through 3wire interface 2) changes the STC3100 to be a TSSOP8 device that can be hand soldered and can be purchased
+For rev 7 1) adds the SDI-12 circuit accessible through 3wire interface 2) changes the STC3100 to be a TSSOP8 device that can be hand soldered and is available.
 This lengthens the board to 2.1" from rev 6 length of 1.7".
 SDI-12 Host is challenging to test with a number of different devices. A seperate device test is needed to verify interoperability.    
 
