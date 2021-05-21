@@ -10,7 +10,7 @@ For all these reasons, additional hardware is usually required to interface a Mo
 
 Here we provide some guidance, designs and documentation different  interface hardware solutions that have worked for us.
 
-- [Modbus-Mayfly-WingShield](https://github.com/EnviroDIY/SensorModbusMaster/tree/master/hardware/Modbus-Mayfly_WingShield)
+- [Modbus-Mayfly-WingShield](Modbus-Mayfly_WingShield)
   - This is what we are currently using widely.
 - Early DIY prototype:
   - https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-mayfly

@@ -8,20 +8,20 @@ NOTE:
 - Power to the RS485 to TTL Adapter comes from the Mayfly's switched 3.3V power.
 - Power to the sensor(s) comes from the Mayfly's switched 5V power supply, which can then be optionally boosted to 9V or 12V depending on the requirements of the sensor.
 
-<img src="https://github.com/EnviroDIY/SensorModbusMaster/blob/master/hardware/Modbus-Mayfly_WingShield/Photos/IMG_6733.JPG"  width="600">
+<img src="https://github.com/EnviroDIY/Mayfly-Modbus-Wing/blob/master/Modbus-Mayfly_WingShield/Photos/IMG_6733.JPG"  width="600">
 
 ## Parts List
 
-<img src="https://github.com/EnviroDIY/SensorModbusMaster/blob/master/hardware/Modbus-Mayfly_WingShield/Photos/IMG_6747-crop.JPG"  width="600">
+<img src="https://github.com/EnviroDIY/Mayfly-Modbus-Wing/blob/master/Modbus-Mayfly_WingShield/Photos/IMG_6747-crop.JPG"  width="600">
 
-- [Modbus-Mayfly-Wing PCB](https://github.com/EnviroDIY/SensorModbusMaster/blob/master/hardware/Modbus-Mayfly_WingShield/Board_Mrk1.png)
-  - Users can have the printed circuit board (PCB) made from these [Gerber files](https://github.com/EnviroDIY/SensorModbusMaster/blob/master/hardware/Modbus-Mayfly_WingShield/RS485_Mayfly_Gerbers.zip).
+- [Modbus-Mayfly-Wing PCB](Modbus-Mayfly_WingShield/Board_Mrk1.png)
+  - Users can have the printed circuit board (PCB) made from these [Gerber files](Modbus-Mayfly_WingShield/RS485_Mayfly_Gerbers.zip).
   - These PCB manufacturers that specialize in small, inexpensive jobs for DIYers:
     - [Bay Area Circuits](https://store.bayareacircuits.com)
     - [Advanced Circuits](http://www.4pcb.com)
     - [OSH Park](https://oshpark.com)
 
-- [WINGONEER TTL To RS485 Adapter 485 Serial Port UART Level Converter Module 3.3V 5V](https://www.amazon.com/gp/product/B06XHH6B6R) from Amazon. 
+- [WINGONEER TTL To RS485 Adapter 485 Serial Port UART Level Converter Module 3.3V 5V](https://www.amazon.com/gp/product/B06XHH6B6R) from Amazon.
   - There are many other companies that sell this exact same RS485 adapter board (such as [SMAKN](https://www.amazon.com/SMAKN®-Adapter-Serial-Converter-Module/dp/B010723BCE/#product)), so pick any of them that look like this one:
 ![u3022-wiring-1](https://user-images.githubusercontent.com/5166036/46170137-9825d580-c262-11e8-88a8-5ac84e84da19.jpg)
   - NOTE: It is hard to find documenation on this board, but we know from experience that it can handle signal logic level shifting from anything between 5-12V down to the 3.3V digital signal required by the Mayfly. This is the RS485 adapter board that YosemiTech shipped inside a converter box enclosure along with a 12V power adaptor for their sensors, which is why we started using it with sensors that require higher voltages to power them.
