@@ -14,8 +14,8 @@ NOTE:
 
 <img src="https://github.com/EnviroDIY/Mayfly-Modbus-Wing/blob/master/Modbus-Mayfly_WingShield/Photos/IMG_6747-crop.JPG"  width="600">
 
-- [Modbus-Mayfly-Wing PCB](Modbus-Mayfly_WingShield/Board_Mrk1.png)
-  - Users can have the printed circuit board (PCB) made from these [Gerber files](Modbus-Mayfly_WingShield/RS485_Mayfly_Gerbers.zip).
+- [Modbus-Mayfly-Wing PCB](./Board_Mrk1.png)
+  - Users can have the printed circuit board (PCB) made from these [Gerber files](./RS485_Mayfly_Gerbers.zip).
   - These PCB manufacturers that specialize in small, inexpensive jobs for DIYers:
     - [Bay Area Circuits](https://store.bayareacircuits.com)
     - [Advanced Circuits](http://www.4pcb.com)
