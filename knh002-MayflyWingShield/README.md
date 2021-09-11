@@ -1,10 +1,13 @@
 # Mayfly Modbus wingboard
 
+This is a build it yourself wingboard, or can be configured and order from Macrofab.com (ordering 50pcs is best cost tradoff).     
+In building hardware, it needs testing and tracking. Typically add a serial number (or in this case read the internal one, and print it on the board) and then step it through the basic hardware functional tests.    
+
 This Mayfly wingboard interface supports   
 - One RS485 interface on three physical connectors for wiring, all clearly labeled with G V B A   
-- One SDI-12 interface on one phsucal connector for wiring, clearly labeled with V G D  
+- One SDI-12 interface on one physical connector for wiring, clearly labeled with V G D  
 - improved brightness - a dual line status LED Red/Green a) Red flashes for transmit to RS485 instrument, B) Green flashes from RS485 instrumnent (response)  
-- improved power supply to a minimium 1.9W continuous, voltage dependent on booster. The boost circuit may be able to supply larger surge currents as it's supply climbs/boosts as the LiIon bat is low impedance. These could be as high as 0.7A continuous at lower voltages, valuable for starting up instruments on turnon.
+- improved power supply to a minimium 1.9W continuous. The output voltage is dependent on booster selected. The boost circuit may be able to supply larger surge currents as it's supply climbs/boosts as the LiIon bat is low impedance. These could be as high as 0.7A continuous at lower voltages, valuable for starting up instruments on turnon.
 - new feature - Powering routing that allows connection directly to the LiIon battery, for more efficent generation and power resilency.  
    For the power output "12V" current supply, the current supplied can be 155mA to 250mA surge (1.9W continuous/3Wsurge) depending on boost hybrid.  
    Low ESR capacitor close to the booster supply input pins to avoid power surge propagation
