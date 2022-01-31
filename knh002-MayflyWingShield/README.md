@@ -41,8 +41,8 @@ https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-
 - Typically the power will be supplied by a battery attached to the J8 labelled "Bat", and a jumper wire will supply power from J9 labelled "May" . On the underside of the board these are clearly labeled "Mayfly" and "Battery" with the + connection identified.   
 - Typically the power will be boosted by U2, and C1 is designed to be able to supply fast switching currents on U2. For detailed analysis refer to the capacitor specification and how switching circuits work.    
 - The power is switched via U3 Load Switch. A SIP32431 or MIC94072YC6 or similar part. This turns ON when 3Vsw is activated by the Mayfly software.  The load switch can support continuous 1.4A. If there is a short circuit in the power loop (before the fuse or if the fuse is bypassed), this devices will emit smoke and become non-operational.   
-- The output of U2 has an electronic fuse R8 155mA, protecting from a short on the output "12V".    
--  Fuses are rated at minimium holding current, and guarenteed trip at 350mA. If output wire is short circuit it will protect battery/processor reliability.  
+- The output of U2 has an electronic (automatic reset) fuse R8 155mA, protecting from a short on the output "12V".    
+-  Fuses are rated at minimium holding current, and guarenteed trip at 350mA. After it trips, when the short circuit is removed it automatically resets. If output wire is short circuit it will protect battery/processor reliability.  
       (The old RS485 hybrid wingboard used the builtin Mayfly regulator that would limit current flows at 3.3V to 0.5A, also limiting power availability to max 1.65W)   
 - On building a board, it can be built with power coming from the 5Vsw, by adding R1=0 and not stuffing U3,J8 J9 (and of course U5 or R5)    
 - Battery coloumb "Fuel Gauge" monitor - STC3100. This supplies acurrate Liion Battery voltage, coloumb in mAh with a typical 0.2mAh resolution, 8-byte unique ID, 32Ram bytes backed up by LiIon battery. There is a device driver https://github.com/neilh10/STC3100arduino and a ModularSensors "STSTC3100_Sensor".
