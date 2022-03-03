@@ -37,12 +37,15 @@ The power availability needs to be determined through a Batter Management algori
 
 ## Mayfly Power Management Discussion  
 
-For standalone solar powered operation, the ability to supply power depends on there being available power. Its assumed this demand could be 220mA for 10seconds and up to 620mA for less than 10mS.
-There is only likely to be guaranteed power at all times of the day, if the Li-Po rechargeable battery has stored enough. 
-This requires a battery management algorithm to detect if there is adequate power. For a specific battery capacity, the algorithm should for a requested load demand, answer can that load be sourced. This algorithm needs to use a provisioned battery capacity and battery measurement, typically battery V, to determine if the answer is TRUE/(Yes there is capacity)or FALSE/(no there isn’t enough capacity).  
-The Mayfly 1.1 Mega1284 option with A6 measuring battery voltage via 10bitADC referenced to Vcc=3.3V for measuring battery voltage is NOT accurate or linear enough around a working threshold between 3.8V and 4.0V to be useable. 
-How to accurately measure the battery voltage is a wip. A) investigate using internal VREF, good for stability but might still need calibration B) Could possibly use LC709204F. Rev 7 used an LTC3100. 
-The connector supplied V_BAT is part of the Mayfly 1.1 bq24074 “Battery Charger” with dynamic power management. The V_BAT dynamic power management voltage is slightly less than the battery when discharging, and when the battery is charging is 200mV more. There is no way of detecting when the battery is charging or if it is charging  
+For standalone solar powered operation, the ability to supply power depends on there being available power. For 4 instruments, its assumed this demand could be 220mA for 10seconds and up to 620mA for less than 10mS.    
+There is only likely to be guaranteed power at all times of the day, if the Li-Po rechargeable battery has stored enough.    
+
+This requires a battery management algorithm to detect if there is adequate power. For a specific battery capacity, the algorithm should for a requested load demand, answer can that load be sourced. This algorithm needs to use a provisioned battery capacity and battery measurement, typically battery V, to determine if the answer is TRUE/(Yes there is capacity)or FALSE/(no there isn’t enough capacity).    
+The Mayfly 1.1 Mega1284 option with A6 measuring battery voltage via 10bitADC referenced to Vcc=3.3V for measuring battery voltage is NOT accurate or linear enough around a working threshold between 3.8V and 4.0V to be useable.   
+
+How to accurately measure the battery voltage is a wip. A) investigate using internal VREF, good for stability but might still need calibration B) Could possibly use LC709204F. Rev 7 used an LTC3100.    
+
+The connector supplied V_BAT is part of the Mayfly 1.1 bq24074 “Battery Charger” with dynamic power management. The V_BAT dynamic power management voltage is slightly less than the battery when discharging, and when the battery is charging is 200mV more. There is no way of detecting when the battery is charging or if it is charging    
 
 
 
