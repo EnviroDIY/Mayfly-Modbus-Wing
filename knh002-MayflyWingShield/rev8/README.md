@@ -11,9 +11,9 @@ The Modbus/RS485 can interface with a number of instruments proposed 4 ( 3 RS485
 Each instrument may consume 55mA active current,  https://github.com/EnviroDIY/YosemitechModbus#power-supply
 and periodically surge to 300mA for 10mS   
 For 4 instruments this is 220mA + surge to 520mA - within 620mA measured.   
-Its proposed that the working temperature for the Mayfly wingboard outdoors environment 10C to 60C
-Its proposed that each instrument interface "facility" be fused seperately, so that a short on one facility only disables that instrument.
-By having each instrument fused sperately, the analog fuse can be better rated to fit with the available power. See schematic.
+Its proposed that the working temperature for the Mayfly wingboard outdoors environment 10C to 60C.   
+Its proposed that each instrument interface "facility" be fused seperately, so that a short on one facility only disables that instrument.   
+By having each instrument fused sperately, the analog fuse can be better rated to fit with the available power. See schematic.   
 
 https://github.com/EnviroDIY/Mayfly-Modbus-Wing/issues/3
 
