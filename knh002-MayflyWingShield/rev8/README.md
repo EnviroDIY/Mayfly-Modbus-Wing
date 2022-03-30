@@ -2,10 +2,11 @@
 
 This is a proposed Request For Comment on a knh002-MafylWingShield Rev8  functionality.
 
-The Mayfly rev 1.1 has an efficient nominal +12V generation, however it can't be switched off completely. 
+The Mayfly rev 1.1 has an efficient 11.3V @100mA (nominal +12V) generation, that is switched via +5V to be able to turn it off completely. 
+
 The Mayfly 1.1 12v boost U10 MCP1665T-E powersupply referenced to 3.8V LiIon source, at room temperature 15C, was measured as able to supply 620mA for some seconds.
-The released Mayfly 1.1 12V boost is likely to derive its power from a lower power switched supply so can be turned OFF completely.
-This RFC assumes a Mayfly 1.1  MCP1665T-E referenced to V_BATT for discussion and able to supply 620mA.   
+
+This RFC assumes either a Mayfly 1.1  MCP1665T-E referenced to V_BATT or future Mayfly's with roughly the same internal power capability of +500mA.   
 
 The Modbus/RS485 can interface with a number of instruments proposed 4 ( 3 RS485 + 1SDI-12) at 12V.   
 Each instrument may consume 55mA active current,  https://github.com/EnviroDIY/YosemitechModbus#power-supply
@@ -17,13 +18,13 @@ By having each instrument fused sperately, the analog fuse can be better rated t
 
 https://github.com/EnviroDIY/Mayfly-Modbus-Wing/issues/3
 
-The power availability needs to be determined through a Batter Management algorithim before any demand is placed on the battery.
+The power availability needs to be determined through a Batter Management algorithim before any demand is placed on the battery. https://github.com/EnviroDIY/EnviroDIY_Mayfly_Logger/issues/32
 
 ## New Rev 8 features under discussion
 - instrument power "12V" has 155mA resetable fuse (PTC), limiting power drawn on a line short per external customer line - rev8 is add fuse to each seperate instrument power.
 
-- ideally each instrument power would be powered through a seperate power switch (4). However ModularSensors software (0.32.2) currently turns all sensor power on in parrallel, and then works through each sensor to perform measurements. If a seperate instrument power switch was produced, it would be to facilitate the change in ModularSensors.  
-- battery monitoring, accurate battery (V), energy consumed (mAHrs) and instaneous current mmeasurement - change to accurate battery V measurement only.
+- each instrument power is through a seperate power switch. However ModularSensors software (0.32.2) currently turns all sensor power on in parrallel, and then works through each sensor to perform measurements. If a seperate instrument power switch was produced, it would be to facilitate the change in ModularSensors.  
+- battery monitoring, need an accurate low noise battery V measurement only. This is possible through a filtered Vbat A4, or external LiIon measurement such as https://adafruit.github.io/Adafruit_LC709203F/html/index.html
 
 ## Mayfly Rev 7 wingboard interface requirements unchanged for Rev8 are   
 - One RS485 interface on three physical connectors for wiring, all clearly labeled with G V B A   
