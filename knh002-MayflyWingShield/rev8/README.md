@@ -40,18 +40,20 @@ The Mayfly rev 1.1 nominnal 12V is actually 11.3V @100mA (nominal +12V) and is d
 - expanded number of physical connectors    
 -  changed RS485 chip with auto-direction due to unavailability of rev7 chip    
 -  removed battery monitoring capability   
+ 
  Related Issues    
-- battery monitoring, need an accurate low noise battery V measurement only. This is possible through a filtered Vbat A4, or external LiIon measurement such as https://adafruit.github.io/Adafruit_LC709203F/html/index.html
+- battery monitoring, need an accurate low noise battery V measurement.    
+https://github.com/EnviroDIY/EnviroDIY_Mayfly_Logger/issues/32   
+https://github.com/EnviroDIY/EnviroDIY_Mayfly_Logger/issues/36    
+
+This is possible through a filtered Vbat A4, or external LiIon measurement such as https://adafruit.github.io/Adafruit_LC709203F/html/index.html      
 https://github.com/neilh10/ModularSensors/issues/75    
 https://github.com/neilh10/ModularSensors/issues/107     
 
 ## Mayfly Rev 7 wingboard interface requirements unchanged for Rev8 are   
-- One RS485 interface on three physical connectors for wiring, all clearly labeled with G V B A   
-- One SDI-12 interface on one physical connector for wiring, clearly labeled with V G D  
-- SDI-12 board has a proto type capability to level shift to a true +5V. This requires intergration and testing with SDI-12 software. 
-- RS485 activity indication - a dual line status LED Red/Green a) Red flashes for transmit to RS485 instrument, B) Green flashes from RS485 instrumnent (response)  
+- RS485 interface labeled with G V B A   
+- SDI-12 interface on one physical connector for wiring, clearly labeled with V G D  
 - local RS485 120ohm termination 2mm jack. The installer can activate the RS485 120ohm termination resistor as needed.   
-- TTL lines have power safe data lines.  (not tested)
 - ground wire. Connect the RS485 GND through a thick 18AWG wire to external ground to conduct external power surges. 
 - pcb designed KiCad open source https://kicad.org/ easier to modify. Thanks to the previouse generation of board, that was imported into KiCad. 
 
