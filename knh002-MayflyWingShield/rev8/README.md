@@ -1,30 +1,47 @@
-# Mayfly Modbus wingboard PROPOSED RFC  Rev8
+# Mayfly Modbus wingboard PROPOSED RFC  Rev8 design
 
-This is a proposed Request For Comment on a knh002-MafylWingShield Rev8  functionality.
+This is a Request For Comment (RFC) on design schematic knh002r8 schematicRs485_220708review.pdf at https://github.com/EnviroDIY/Mayfly-Modbus-Wing/tree/master/knh002-MayflyWingShield/rev8    
+Comments for the design are opened on 2022-July-9th will be closed Monday 2022-July-20 12noon PST.      
 
-The Mayfly rev 1.1 has an efficient 11.3V @100mA (nominal +12V) generation, that is switched via +5V to be able to turn it off completely. 
+The Modbus/RS485 can interface with a number of physical lines6 RS485 + 1SDI-12, at 12V.   
+Requirement: Supply  12V +/ 5% @0.5A or 6W across temperature and battery voltage 3.8V to 4.2V
+Objective : Smooth a 290mA Surge for 10mS.
+Objective: Design for a working temperature for outdoors environment -10C to 60C. 
+Requirement: Power (nominal 3.8V) 2 * 2pin JST    
+Requirement: 6 (3+3) RS485 ports – 4pin screw term, & optional 4pin grove 2mm   
+Optional : 4pin grove may be optionally assembled after final testing   
+Objective: Board break off of 3 RS485 ports to shorten.   
+Requirement : RS485 2wire (UART Tx & Rx) with auto-direction   
+Requirement: 2 Physical SDI-12 ports – both 3pin screw term, & optional 3pin grove 2mm  
+Requirement: SDI-12 has "SDI-12 standard" ESD   
+Requirement : All physical ports fused @25c hold 155mA
+Objective : Reliable Physical Tie in - can’t unseat itself. Use mayfly compatible sub-panel.
+Requirement : Mayfly interfaces at 3.3V and Ioff Safe
 
-The Mayfly 1.1 12v boost U10 MCP1665T-E powersupply referenced to 3.8V LiIon source, at room temperature 15C, was measured as able to supply 620mA for some seconds.
-
-This RFC assumes either a Mayfly 1.1  MCP1665T-E referenced to V_BATT or future Mayfly's with roughly the same internal power capability of +500mA.   
-
-The Modbus/RS485 can interface with a number of instruments proposed 4 ( 3 RS485 + 1SDI-12) at 12V.   
 Each instrument may consume 55mA active current,  https://github.com/EnviroDIY/YosemitechModbus#power-supply
-and periodically surge to 300mA for 10mS   
-For 4 instruments this is 220mA + surge to 520mA - within 620mA measured.   
-Its proposed that the working temperature for the Mayfly wingboard outdoors environment 10C to 60C.   
-Its proposed that each instrument interface "facility" be fused seperately, so that a short on one facility only disables that instrument.   
-By having each instrument fused sperately, the analog fuse can be better rated to fit with the available power. See schematic.   
+and periodically surge to 290mA for 10mS   
+For 6 instruments this is 340mA (within 500mA budget) + periodic 10mS surge 290mA .   
+  
+Each instrument interface "facility" is fused seperately, so that a short on one facility only disables that instrument.   
+Two or more line shorts may cause excessive current draw, and may not cause either fuse to operate.      
+By having each instrument fused sperately, the analog fuse can be better rated to fit with the available power.   
 
+The discussion on specification for this board is per 
 https://github.com/EnviroDIY/Mayfly-Modbus-Wing/issues/3
 
-The power availability needs to be determined through a Batter Management algorithim before any demand is placed on the battery. https://github.com/EnviroDIY/EnviroDIY_Mayfly_Logger/issues/32
+The power availability needs to be determined through a Battery Management algorithim before any demand is placed on the battery. https://github.com/EnviroDIY/EnviroDIY_Mayfly_Logger/issues/32
 
-## New Rev 8 features under discussion
-- instrument power "12V" has 155mA resetable fuse (PTC), limiting power drawn on a line short per external customer line - rev8 is add fuse to each seperate instrument power.
+The Mayfly rev 1.1 nominnal 12V is actually 11.3V @100mA (nominal +12V) and is derived via +5V to be able to turn it off completely. 
 
-- each instrument power is through a seperate power switch. However ModularSensors software (0.32.2) currently turns all sensor power on in parrallel, and then works through each sensor to perform measurements. If a seperate instrument power switch was produced, it would be to facilitate the change in ModularSensors.  
+## New Rev 8 features 
+- instrument power "12V" has 180mA @25C resetable fuse (PTC), limiting power drawn on a line short per external customer line - rev8 is add fuse to each seperate instrument power.   
+- expanded number of physical connectors    
+-  changed RS485 chip with auto-direction due to unavailability of rev7 chip    
+-  removed battery monitoring capability   
+ Related Issues    
 - battery monitoring, need an accurate low noise battery V measurement only. This is possible through a filtered Vbat A4, or external LiIon measurement such as https://adafruit.github.io/Adafruit_LC709203F/html/index.html
+https://github.com/neilh10/ModularSensors/issues/75    
+https://github.com/neilh10/ModularSensors/issues/107     
 
 ## Mayfly Rev 7 wingboard interface requirements unchanged for Rev8 are   
 - One RS485 interface on three physical connectors for wiring, all clearly labeled with G V B A   
