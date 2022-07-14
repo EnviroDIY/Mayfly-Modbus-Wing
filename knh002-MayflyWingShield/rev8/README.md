@@ -4,21 +4,21 @@ This is a Request For Comment (RFC) on design schematic knh002r8 schematicRs485_
 Comments for the design are opened on 2022-July-9th will be closed Monday 2022-July-20 12noon PST.      
 
 The Modbus/RS485 can interface with a number of physical lines6 RS485 + 1SDI-12, at 12V.   
-Requirement: Supply  12V +/ 5% @0.5A or 6W across temperature and battery voltage 3.8V to 4.2V    
-Objective : Smooth a 290mA Surge for 10mS.
-Objective: Design for a working temperature for outdoors environment -10C to 60C. 
-Requirement: Power (nominal 3.8V) 2 * 2pin JST    
-Requirement: 6 (3+3) RS485 ports – 4pin screw term, & optional 4pin grove 2mm   
-Optional : 4pin grove may be optionally assembled after final testing   
-Objective: Board break off of 3 RS485 ports to shorten.   
-Requirement : RS485 2wire (UART Tx & Rx) with auto-direction   
-Requirement : RS485 UART Tx activity, command to the equipment, indicated with LED RED visible to the eye at 19200baud or less   
-Requirement : RS485 UART Rx activity, response from the equipment, indicated with LED GREEN visible to the eye at 19200baud or less   
-Requirement: 2 Physical SDI-12 ports – both 3pin screw term, & optional 3pin grove 2mm  
-Requirement: SDI-12 has "SDI-12 standard" ESD   
-Requirement : All physical ports fused @25c hold 155mA    
-Objective : Reliable Physical Tie in - can’t unseat itself. Use mayfly compatible sub-panel.   
-Requirement : Mayfly interfaces at 3.3V and Ioff Safe    
+- Requirement: Supply  12V +/ 5% @0.5A or 6W across temperature and battery voltage 3.8V to 4.2V    
+- Objective : Smooth a 290mA Surge for 10mS.
+- Objective: Design for a working temperature for outdoors environment -10C to 60C. 
+- Requirement: Power (nominal 3.8V) 2 * 2pin JST    
+- Requirement: 6 (3+3) RS485 ports – 4pin screw term, & optional 4pin grove 2mm   
+- Optional : 4pin grove may be optionally assembled after final testing   
+- Objective: Board break off of 3 RS485 ports to shorten.   
+- Requirement : RS485 2wire (UART Tx & Rx) with auto-direction   
+- Requirement : RS485 UART Tx activity, command to the equipment, indicated with LED RED visible to the eye at 19200baud or less   
+- Requirement : RS485 UART Rx activity, response from the equipment, indicated with LED GREEN visible to the eye at 19200baud or less   
+- Requirement: 2 Physical SDI-12 ports – both 3pin screw term, & optional 3pin grove 2mm  
+- Requirement: SDI-12 has "SDI-12 standard" ESD   
+- Requirement : All physical ports fused @25c hold 155mA    
+- Objective : Reliable Physical Tie in - can’t unseat itself. Use mayfly compatible sub-panel.   
+- Requirement : Mayfly interfaces at 3.3V and Ioff Safe    
 
 A use case is described, where each instrument may consume 55mA active current,  https://github.com/EnviroDIY/YosemitechModbus#power-supply
 and periodically surge to 290mA for 10mS   
