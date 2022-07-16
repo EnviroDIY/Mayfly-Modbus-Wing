@@ -1,5 +1,8 @@
 # Mayfly Modbus wingboard PROPOSED RFC  Rev8 design
 
+July-15: I've updated for  MP5036 "12V switch IC" which has become available ~ see knh002r8 schematicRs485_220715review.pdf   
+Also added a more detailed circuit description.   
+
 This is a Request For Comment (RFC) on design schematic knh002r8 schematicRs485_220708review.pdf at https://github.com/EnviroDIY/Mayfly-Modbus-Wing/tree/master/knh002-MayflyWingShield/rev8    
 Comments for the design are opened on 2022-July-9th will be closed Monday 2022-July-20 12noon PST.      
 
