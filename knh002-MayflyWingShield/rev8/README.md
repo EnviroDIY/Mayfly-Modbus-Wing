@@ -1,10 +1,17 @@
 # Mayfly Modbus wingboard PROPOSED RFC  Rev8 design
 
+Final review schematic knh002r8b4 schematicRs485_reviewed221101_final.pdf
+and BOM 
+Macrofab order built to BOM KNH002rev8b4_221005_1534.xlsx
+However J1 J5 J6 J14 J15 J17 4pin connectors are incompatible with standard Seeed cables. 
+See updated KNH002rev8b4b_230105.xlsx
+Changed the +12VswAEn to J21 pin 8, which maps to Mayfly digital port 10.
+ 
 July-15: I've updated for  MP5036 "12V switch IC" which has become available ~ see knh002r8 schematicRs485_220715review.pdf   
 Also added a more detailed circuit description.   
 
 This is a Request For Comment (RFC) on design schematic knh002r8 schematicRs485_220708review.pdf at https://github.com/EnviroDIY/Mayfly-Modbus-Wing/tree/master/knh002-MayflyWingShield/rev8    
-Comments for the design are opened on 2022-July-9th will be closed Monday 2022-July-20 12noon PST.      
+Comments on the design where opened on 2022-July-9th and closed Monday 2022-July-20 12noon PST.      
 
 The Modbus/RS485 can interface with a number of physical lines6 RS485 + 1SDI-12, at 12V.   
 - Requirement: Supply  12V +/ 5% @0.5A or 6W across temperature and battery voltage 3.8V to 4.2V    
