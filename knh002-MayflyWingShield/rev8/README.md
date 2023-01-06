@@ -1,13 +1,13 @@
 # Mayfly Modbus wingboard PROPOSED RFC  Rev8 design
 
 2023 Jan 5 - Add details per the manufactured board. 
-Final review schematic knh002r8b4 schematicRs485_reviewed221101_final.pdf
+Final review schematic [knh002r8b4 schematicRs485_reviewed221101_final.pdf](knh002r8b4 schematicRs485_reviewed221101_final.pdf)
 Kicad 6.0 Archive KNH002rev8b4_230105.zip
 
 and BOM 
 Macrofab order built to BOM KNH002rev8b4_221005_1534.xlsx
 J1 J5 J6 J14 J15 J17 4pin connectors are incompatible with standard Seeed cables.
-See updated KNH002rev8b4b_230105.xlsx
+See updated [KNH002rev8b4b_230105.xlsx](KNH002rev8b4b_230105.xlsx)
 
 Changed the +12VswAEn to J21 pin 8, which maps to Mayfly digital port 10.
 

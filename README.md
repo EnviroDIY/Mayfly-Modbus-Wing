@@ -10,7 +10,9 @@ For all these reasons, additional hardware is usually required to interface a Mo
 
 Here we provide some guidance, designs and documentation different  interface hardware solutions that have worked for us.
 
+- [Modbus2-Mayfly-WingShield](Mknh002-MayflyWingShield)
+  - This is what we are currently using widely
 - [Modbus-Mayfly-WingShield](Modbus-Mayfly_WingShield)
-  - This is what we are currently using widely.
+  - This is the first boards - single circuit.
 - Early DIY prototype:
   - https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-mayfly

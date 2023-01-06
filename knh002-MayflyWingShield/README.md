@@ -1,27 +1,9 @@
 # Mayfly Modbus wingboard
 
 This is a build it yourself wingboard, or can be configured and order from Macrofab.com (ordering 50pcs is best cost tradoff).     
-In building hardware, it needs testing and tracking. Typically add a serial number (or in this case read the internal one, and print it on the board) and then step it through the basic hardware functional tests.    
+In building hardware, it needs testing and tracking. Typically add a serial number and then step it through the basic hardware functional tests. See directory for detailed files
 
-This Mayfly wingboard interface supports   
-- One RS485 interface on three physical connectors for wiring, all clearly labeled with G V B A   
-- One SDI-12 interface on one physical connector for wiring, clearly labeled with V G D  
-- improved brightness - a dual line status LED Red/Green a) Red flashes for transmit to RS485 instrument, B) Green flashes from RS485 instrumnent (response)  
-- improved power supply to a minimium 1.9W continuous. The output voltage is dependent on booster selected. The boost circuit may be able to supply larger surge currents as it's supply climbs/boosts as the LiIon bat is low impedance. These could be as high as 0.7A continuous at lower voltages, valuable for starting up instruments on turnon.
-- new feature - Powering routing that allows connection directly to the LiIon battery, for more efficent generation and power resilency.  
-   For the power output "12V" current supply, the current supplied can be 155mA to 250mA surge (1.9W continuous/3Wsurge) depending on boost hybrid.  
-   Low ESR capacitor close to the booster supply input pins to avoid power surge propagation
-- new feature - instrument power "12V" has 155mA resetable fuse (PTC), limiting power drawn on a line short.
-- new feature - local RS485 120ohm termination 2mm jack. The installer can activate the RS485 120ohm termination resistor as needed.   
-- new feature - battery monitoring, accurate battery (V), energy consumed (mAHrs) and instaneous current mmeasurement.
-- new feature - TTL lines have power safe data lines.  (not tested)
-- new feature - ground wire. Connect the RS485 GND through a thick 18AWG wire to external ground to conduct external power surges. 
-- new feature - pcb designed KiCad open source https://kicad.org/ easier to modify. Thanks to the previouse generation of board, that was imported into KiCad. 
-
-Changes from the old Mayfly RS485 wingboard    
-a) doesn't use the unmanaged hybrid.  These hybrids where of unspecified quality, and often didn't work for me. 
-
-Building Guide - to-be-updated - see    
+Building Guide (wip)- to-be-updated - see    
 https://github.com/neilh10/SensorModbusMaster/wiki    
 https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-mayfly
 
@@ -29,10 +11,10 @@ https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-
 - Revision8 has one RS485 circuit with six transducer/modbus connectors, and two SDI-12 with a +12V 6W boost.  
 - There are 6 mechanical support holes. 1/8" 0.125" 3.2mm dia holes, for mechanical support such as Essentra Part Number 27DMSP00625. They are aavailable from DIgikey in a range of heights. 
 - All transducer power connnections have a seperate eFuse/155mA. That is one +12V transducer power can be short circuited at +12V and other circuits are still powered. If more than one transducer +12V is short circuit the whole +12V is turned off, protecting the boost circuit.      
-- THe connectors are all specifed at assembly, and soldered onto the board. The silk screen has clearly printed both side for RS485 connectors G V B A  and one SDI-12 V G D.   
+- The connectors are all specifed at assembly, and soldered onto the board. The silk screen has clearly printed both side for RS485 connectors G V B A  and one SDI-12 V G D.   
   Where G=Gnd  V=Voltage and then RS485 designators A and B and SDI-12 D     
 - A 12V/6W switch requires extra circuitry to manage the higher power and protect against wiring errors.    
-  U2 MP5036 +12V switches the voltage to the transducers, from Mayfly port 10 going high.
+  U2 MP5036 +12V switches the voltage to the transducers, from Mayfly port 10 going high.   
   The transducer +12V is bufferd by a capacitor 330uF designed to supply an transducer surge of 290mA (eg when a wiper turns on)    
   One of the features of +12V switch is a current monitoring and limiting capability - it manages the way the current is supplied on turn on - called dV/dA.  If more than one interface shorts, it detects a large current excess of 0.5A it turns off. When the short is removed it turns on.   
   This protects the boost hybrdid from burnout.
@@ -41,19 +23,18 @@ https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-
   For the Mayfly ports first switch digital port D22 hight for the boost, and then digital port D10 high to enable the power to the Modbus   
 - U1/ MAX1348eesa+ is the RS485 physical interface, and manages the RS485 half-duplex state machine.   
 - R8/R7 649ohms are the pull-up down resistors for a long twisted pair transmission line. The value 649ohms was selected based on a remote 120Ohm and local 120ohm terminations. Its optomized for a single instrument termination over a long line, but typically will work with a number instruments terminating locally. Its up to the user to figure out if a complex set of instruments and wire lengths works for them, or do RS485 line calculations for what value of resistors they need.     
-- The RS485 Rxb (Rx buffered) interfaces to the Mafyly via the Ioff Safe SN74LVC234. These allow the MAX22025/SN74LVC234 to be turned off, and not take current from the Mayfly.   
+- The RS485 Rxb (Rx buffered) interfaces to the Mafyly via the Ioff Safe SN74LVC234. These allow the SN74LVC234 to be turned off, and not take current from the Mayfly.   
 - The Green LED is attached to the Rxb driven by the Max22025 output. When an instrument responds to a poll request, the green LED turns ON when signal is low and powered. Statastically its likely there will be some low portions in the received signal. The green is high intensity to be visible.
 - The SN74LVC234 Txb Tx(buffered) drives the RED LED, turning ON when LOW, and board powered. This reflects attempts to poll a target instrumnet. ModularSensors code typically reads the sensor 3 times to contact an instrument. For the sensor set to read/average 3 times, then for a connected responding instrument there will be 3 sets of fast red then green flashes. 
 Typically If it doesn't get a response it tries a number of times. So no instrument responding will result in a sieries of red flashes. 
   ModularSensors is configurable software and your load may do something different
-- SDI-12 is driven from Port D7 or circuit signal "sdiProt" SDI Protected. It has the standard SDI-12 specified surge circuitry. Check the schematic if intending to be used.
-- Typically the power will be supplied by a battery attached to the J8 labelled "Bat", and a jumper wire will supply power from J9 labelled "May" . On the underside of the board these are clearly labeled "Mayfly" and "Battery" with the + connection identified.   
+- SDI-12 is driven from Port D7 or circuit signal "sdiProt" SDI Protected. It has the standard SDI-12 specified surge circuitry. Check the schematic if intending to use.
 - Power from a LiIon battery - typically 3.4-4.2V is supplied to J3 and J4. C1 is designed to be able to supply fast switching currents on U4. For detailed analysis refer to the capacitor specification and how switching circuits work.    
 - The output of U2 has an electronic (automatic reset) fuse R8 155mA, protecting from a short on the output "12V".    
+- See in rev8  "knh002r8b4 schematicRs485_reviewed221101_final.pdf"
 
-      See knh002r8b4 schematicRs485_reviewed221101_final.pdf
 # KNH002 Circuit Discription Rev7
-(as per rev7) 
+
 - This has one RS485 circuit with three connectors, and one SDI-12 with a boost converter typically 12V.
 - Typically the 4 physical connections are decided by the end-user, and soldered onto the board. The silk screen has clearly printed both side for three RS485 connectors G V B A  and one SDI-12 V G D. 
   Where G=Gnd  V=Voltage and then RS485 designators A and B and SDI-12 D     
@@ -78,11 +59,11 @@ Typically If it doesn't get a response it tries a number of times. So no instrum
 https://github.com/neilh10/SensorModbusMaster/issues/1    
 https://github.com/EnviroDIY/SensorModbusMaster/issues/14 
 
- # KNH002 Circuit Discription  rev8 changes from rev6
- The fan out is now 6 RS485 circuits and 2 SDI-12, all with eFuses on +12V
+ # KNH002 Circuit Discription  rev8 changes from rev7
+ The fan out is now 6 RS485 circuits and 2 SDI-12, all with eFuses on +12V   
  The power switch is moved from the LiIon battery side to the +12V boost side, and requires a seperate Mayfly digital port D10 to be activated.     
- The boost can source 6W at 12V
- The RS485 chipe changed due to parts shortages
+ The boost can source 6W at 12V.    
+ The RS485 chipe changed due to parts shortages.    
  Battery coloumb "Fuel Gauge" monitor - STC3100 and Unique ID has been removed. 
 
  # KNH002 Circuit Discription  rev7 additions rev6
