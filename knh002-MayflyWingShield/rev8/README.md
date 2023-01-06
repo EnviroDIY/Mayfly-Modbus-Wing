@@ -1,7 +1,7 @@
 # Mayfly Modbus wingboard PROPOSED RFC  Rev8 design
 
 2023 Jan 5 - Add details per the manufactured board. 
-Final review schematic [knh002r8b4 schematicRs485_reviewed221101_final.pdf](knh002r8b4 schematicRs485_reviewed221101_final.pdf)
+Final review schematic [knh002r8b4-schematicRs485_reviewed221101_final.pdf](knh002r8b4 schematicRs485_reviewed221101_final.pdf)   
 Kicad 6.0 Archive KNH002rev8b4_230105.zip
 
 and BOM 
@@ -11,7 +11,9 @@ See updated [KNH002rev8b4b_230105.xlsx](KNH002rev8b4b_230105.xlsx)
 
 Changed the +12VswAEn to J21 pin 8, which maps to Mayfly digital port 10.
 
-Testing the circuit https://youtu.be/oaj7fImqp2o
+Testing the circuit https://youtu.be/oaj7fImqp2o    
+
+Discussion https://github.com/EnviroDIY/Mayfly-Modbus-Wing/issues/3   
 
 2022 July-15: I've updated for  MP5036 "12V switch IC" which has become available ~ see knh002r8 schematicRs485_220715review.pdf   
 Also added a more detailed circuit description.   
