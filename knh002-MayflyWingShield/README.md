@@ -3,9 +3,7 @@
 This is a build it yourself wingboard, or can be configured and order from Macrofab.com (ordering 50pcs is best cost tradoff).     
 In building hardware, it needs testing and tracking. Typically add a serial number and then step it through the basic hardware functional tests. See directory for detailed files
 
-Building Guide (wip)- to-be-updated - see    
-https://github.com/neilh10/SensorModbusMaster/wiki    
-https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-mayfly
+
 
 # KNH002 Circuit Discription Rev8
 - Revision8 has one RS485 circuit with six transducer/modbus connectors, and two SDI-12 with a +12V 6W boost.  
@@ -57,8 +55,11 @@ Typically If it doesn't get a response it tries a number of times. So no instrum
 
 # History   
 https://github.com/neilh10/SensorModbusMaster/issues/1    
+https://github.com/neilh10/SensorModbusMaster/wiki    
 https://github.com/EnviroDIY/SensorModbusMaster/issues/14 
 
+
+https://github.com/EnviroDIY/YosemitechModbus#suggested-setup-with-an-envirodiy-mayfly
  # KNH002 Circuit Discription  rev8 changes from rev7
  The fan out is now 6 RS485 circuits and 2 SDI-12, all with eFuses on +12V   
  The power switch is moved from the LiIon battery side to the +12V boost side, and requires a seperate Mayfly digital port D10 to be activated.     
