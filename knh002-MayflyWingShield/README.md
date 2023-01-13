@@ -8,9 +8,15 @@ In building hardware, it needs testing and tracking. Typically add a serial numb
 # KNH002 Circuit Discription Rev8
 - Revision8 has one RS485 circuit with six transducer/modbus connectors, and two SDI-12 with a +12V 6W boost.  
 - schematic "rev8/knh002r8b4 schematicRs485_reviewed221101_final.pdf"   
-- Board dimensions "rev8/knh002r8b4-asm220916 board dimensions.pdf". It may be broken in the center - for just three RS485 circuits.    
-- There are 6 mechanical support holes. 1/8" 0.125" 3.2mm dia holes, for mechanical support such as Essentra Part Number 27DMSP00625. They are aavailable from DIgikey in a range of heights.   
-- Mechanical "rev/support dimensions knh002r8b4-asm220916 board support holes.pdf"
+- Board dimensions "rev8/knh002r8b4-asm220916 board dimensions.pdf". It may be broken in the center - for just three RS485 circuits.  
+<picture>
+ <img alt="board support hole dimensions" src="rev8/knh002r8b4-asm220916 board dimensions.jpg">
+</picture>
+- There are 6 mechanical support holes. 1/8" 0.125" 3.2mm dia holes, for mechanical support such as Essentra Part Number 27DMSP00625. They are available from DIgikey in a range of heights.   
+- Mechanical "rev8/support dimensions knh002r8b4-asm220916 board support holes.pdf"
+<picture>
+ <img alt="board support hole dimensions" src="rev8/knh002r8b4-asm220916 board support holes.jpg">
+</picture>
 - All transducer power connnections have a seperate eFuse/155mA. That is one +12V transducer power can be short circuited at +12V and other circuits are still powered. If more than one transducer +12V is short circuit the whole +12V is turned off, protecting the boost circuit.      
 - The connectors are all specifed at assembly, and soldered onto the board. The silk screen has clearly printed both side for RS485 connectors G V B A  and one SDI-12 V G D.   
   Where G=Gnd  V=Voltage and then RS485 designators A and B and SDI-12 D     
