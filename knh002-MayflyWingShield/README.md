@@ -6,9 +6,13 @@ In building hardware, it needs testing and tracking. Typically add a serial numb
 
 
 # KNH002 Circuit Discription Rev8
-- Revision8 has one RS485 circuit with six transducer/modbus connectors, and two SDI-12 with a +12V 6W boost.  
+- Revision8 has +12V 6W boost, one RS485 circuit with six transducer/modbus connectors (4 wire), and two SDI-12 (3 wire) connectors.  
+<picture>
+ <img alt="board support hole dimensions" src="rev8/knh002r8b2-asm220916 topWiresEarth.jpg">
+</picture>   
+
 - schematic "rev8/knh002r8b4 schematicRs485_reviewed221101_final.pdf"   
-- Board dimensions "rev8/knh002r8b4-asm220916 board dimensions.pdf". It may be broken in the center - for just three RS485 circuits.  
+- Board dimensions "rev8/knh002r8b4-asm220916 board dimensions.pdf". It may be broken in the center to reduce the length of the board - for just three RS485 circuits.  
 <picture>
  <img alt="board support hole dimensions" src="rev8/knh002r8b4-asm220916 board dimensions.jpg">
 </picture>
