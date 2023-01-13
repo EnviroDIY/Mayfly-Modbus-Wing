@@ -16,7 +16,8 @@ In building hardware, it needs testing and tracking. Typically add a serial numb
 - Mechanical "rev8/support dimensions knh002r8b4-asm220916 board support holes.pdf"
 <picture>
  <img alt="board support hole dimensions" src="rev8/knh002r8b4-asm220916 board support holes.jpg">
-</picture>
+</picture>   
+
 - All transducer power connnections have a seperate eFuse/155mA. That is one +12V transducer power can be short circuited at +12V and other circuits are still powered. If more than one transducer +12V is short circuit the whole +12V is turned off, protecting the boost circuit.      
 - The connectors are all specifed at assembly, and soldered onto the board. The silk screen has clearly printed both side for RS485 connectors G V B A  and one SDI-12 V G D.   
   Where G=Gnd  V=Voltage and then RS485 designators A and B and SDI-12 D     
